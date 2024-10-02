@@ -11,7 +11,7 @@ const streamLingoBtn = document.querySelector("#streamLingo");
 const transcriptionDiv = document.querySelector("#transcription");
 const translationStatus = document.querySelector("#transcriptionLabel");
 
-const socket = io("http://localhost:9000");
+const socket = io("https://suited-working-barnacle.ngrok-free.app/");
 const currentUrl = new URL(window.location.href);
 let localStream;
 
