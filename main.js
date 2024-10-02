@@ -215,8 +215,6 @@ async function initAudioWorkletNode(localStream) {
 
 /////////////////AZURE//////////////////////////////
 
-const handleStreamLingo = () => {};
-
 async function azureASR() {
   pushStream = SpeechSDK.AudioInputStream.createPushStream();
   const audioConfig = SpeechSDK.AudioConfig.fromStreamInput(pushStream);
