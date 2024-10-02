@@ -155,7 +155,7 @@ socket.on("icecandidate", async (candidate) => {
 
 socket.on("audioData", (data) => {
   console.log(data);
-  // playTranslatedSpeech(data);
+  playTranslatedSpeech(data);
 });
 
 ////////////////////\ Funtions /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -255,7 +255,11 @@ async function azureSpeech(text) {
     "33c8d69d70f0449ea11d21ea6f27be0b",
     "eastus"
   );
-  const audioConfig = SpeechSDK.AudioConfig.fromDefaultSpeakerOutput();
+
+  // Create an empty stream to avoid playing the audio locally
+  const stream = new SpeechSDK.PushAudioOutputStreamCallback();
+
+  const audioConfig = SpeechSDK.AudioConfig.fromStreamOutput(stream);
   speechConfig.speechSynthesisVoiceName = SPEECH_LANG;
 
   const speechSynthesizer = new SpeechSDK.SpeechSynthesizer(
@@ -267,6 +271,7 @@ async function azureSpeech(text) {
     text,
     (result) => {
       if (result) {
+        // Emit the audio data without playing it locally
         socket.emit("translatedSpeech", result.audioData);
         speechSynthesizer.close();
       }
