@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script
     src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
-    </script>
-  <link rel="stylesheet" href="style.css">
+  </script>
+  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
     integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
     crossorigin="anonymous"></script>
@@ -18,26 +18,26 @@
 <body>
   <div id="app">
 
-    <div id="userInputDiv">
-
-      <div>
+    <div id="userInputDiv" class="input-container">
+      <div class="input-group">
         <input type="text" id="userInput" placeholder="N A M E">
       </div>
 
-      <div><button id="createBtn">Create</button></div>
+      <div class="input-group">
+        <button id="createBtn">Create</button>
+      </div>
 
-      <div id="join-container">
+      <div id="join-container" class="input-group">
         <input type="text" id="roomInput" placeholder="R O O M">
         <button id="joinBtn">Join</button>
       </div>
-
     </div>
 
-    <div id="usersConnected">
+    <div id="usersConnected" class="users-connected">
       <h1 id="userConnectedHeading"></h1>
     </div>
 
-    <div id="videoContainer">
+    <div id="videoContainer" class="video-container">
       <video id="localVideo" autoplay muted></video>
       <video id="remoteVideo" autoplay></video>
     </div>
@@ -46,11 +46,10 @@
       <button id="streamLingo" style="display: none;">StreamLingo</button>
     </div>
 
-    <div>
+    <div class="transcription-container">
       <label for="transcription" id="transcriptionLabel"></label>
       <div id="transcription"></div>
     </div>
-
 
   </div>
 
